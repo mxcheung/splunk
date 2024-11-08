@@ -16,3 +16,8 @@ index=transactions_index sourcetype=transaction_logs
 | eventstats avg(transaction_count) as avg_count
 | where transaction_count < (0.5 * avg_count)
 ```
+
+The Splunk REST API allows you to export alerts (saved searches) via the saved/searches endpoint.
+```
+curl -k -u <username>:<password> https://<splunk_host>:8089/services/saved/searches/<alert_name>?output_mode=json
+```
